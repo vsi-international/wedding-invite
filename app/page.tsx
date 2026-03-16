@@ -66,18 +66,19 @@ export default function Home() {
   };
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#f9ecd2] text-black">
-      {/* First section behind curtains */}
-      <section className="relative z-0 flex min-h-screen items-center justify-center">
-        <div className="relative h-[100vh] w-full">
-          <Image
-            src="/1.png"
-            alt="Wedding invitation"
-            fill
-            priority
-            className="object-contain"
-          />
-        </div>
+   <main className="relative min-h-screen overflow-hidden bg-[#f9ecd2] text-black">
+  {/* First section behind curtains */}
+  <section className="relative z-0 flex min-h-screen items-center justify-center px-6">
+    <div className="relative w-full max-w-4xl h-[90vh]">
+      <Image
+        src="/1.png"
+        alt="Wedding invitation"
+        fill
+        priority
+        className="object-contain"
+      />
+      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+    </div>
       </section>
 
       {/* Second section */}
