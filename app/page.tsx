@@ -66,20 +66,19 @@ export default function Home() {
   };
 
   return (
-  <main className="relative min-h-screen overflow-hidden bg-neutral-950 text-white">
-  {/* First section behind curtains */}
-  <section className="relative z-0 flex min-h-screen items-center justify-center">
-    <div className="relative h-[100vh] w-full">
-      <Image
-        src="/1.png"
-        alt="Wedding invitation"
-        fill
-        priority
-        className="object-contain"
-      />
-      <div className="absolute inset-0 bg-black/20" />
-    </div>
-  </section>
+    <main className="relative min-h-screen overflow-hidden bg-[#f9ecd2] text-black">
+      {/* First section behind curtains */}
+      <section className="relative z-0 flex min-h-screen items-center justify-center">
+        <div className="relative h-[100vh] w-full">
+          <Image
+            src="/1.png"
+            alt="Wedding invitation"
+            fill
+            priority
+            className="object-contain"
+          />
+        </div>
+      </section>
 
       {/* Second section */}
       <ScratchCard />
@@ -112,7 +111,7 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div
             ref={hintRef}
-            className="rounded-full border border-white/20 bg-black/25 px-5 py-3 text-sm tracking-wide backdrop-blur-sm"
+            className="rounded-full border border-white/20 bg-black/25 px-5 py-3 text-sm tracking-wide backdrop-blur-sm text-white"
           >
             Touch to Open
           </div>
