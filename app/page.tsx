@@ -80,6 +80,7 @@ export default function Home() {
       />
     </div>
   </section>
+  
 
       {/* Second section */}
       <ScratchCard />
