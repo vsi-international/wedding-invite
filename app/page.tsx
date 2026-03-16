@@ -66,20 +66,20 @@ export default function Home() {
   };
 
   return (
-   <main className="relative min-h-screen overflow-hidden bg-[#f9ecd2] text-black">
+<main className="relative min-h-screen overflow-hidden bg-[#f9ecd2] text-black">
   {/* First section behind curtains */}
-  <section className="relative z-0 flex min-h-screen items-center justify-center px-6">
-    <div className="relative w-full max-w-4xl h-[90vh]">
+  <section className="relative z-0 flex min-h-screen items-center justify-center px-4">
+    <div className="w-full flex justify-center">
       <Image
         src="/1.png"
         alt="Wedding invitation"
-        fill
+        width={900}
+        height={1400}
         priority
-        className="object-contain"
+        className="h-auto w-full max-w-sm object-contain"
       />
-      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
     </div>
-      </section>
+  </section>
 
       {/* Second section */}
       <ScratchCard />
