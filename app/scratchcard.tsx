@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import Image from "next/image";
 
 type ScratchCircleProps = {
   value: string;
@@ -11,6 +12,8 @@ type ScratchCircleProps = {
 type ScratchSetProps = {
   title: string;
   values: [string, string, string];
+  imageSrc: string;
+  imageAlt: string;
 };
 
 function ScratchCircle({ value, onReveal }: ScratchCircleProps) {
@@ -173,8 +176,10 @@ function ScratchCircle({ value, onReveal }: ScratchCircleProps) {
   );
 }
 
-function ScratchSet({ title, values }: ScratchSetProps) {
-  const sectionRef = useRef<HTMLDivElement>(null);
+function ScratchSet({ title, values, imageSrc, imageAlt }: ScratchSetProps) {
+  const scratchRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+
   const [revealedCount, setRevealedCount] = useState(0);
   const [hasTransitioned, setHasTransitioned] = useState(false);
 
@@ -183,12 +188,29 @@ function ScratchSet({ title, values }: ScratchSetProps) {
 
     setHasTransitioned(true);
 
-    gsap.to(sectionRef.current, {
-      opacity: 0.45,
-      scale: 0.98,
-      duration: 0.6,
-      ease: "power2.out",
-    });
+    const tl = gsap.timeline();
+
+    tl.to(scratchRef.current, {
+      x: "-100%",
+      opacity: 0,
+      duration: 0.9,
+      ease: "power3.inOut",
+    }).fromTo(
+      cardRef.current,
+      {
+        x: "100%",
+        opacity: 0,
+        scale: 0.96,
+      },
+      {
+        x: "0%",
+        opacity: 1,
+        scale: 1,
+        duration: 0.9,
+        ease: "power3.inOut",
+      },
+      "-=0.65"
+    );
   }, [revealedCount, hasTransitioned]);
 
   const handleCircleReveal = () => {
@@ -196,33 +218,67 @@ function ScratchSet({ title, values }: ScratchSetProps) {
   };
 
   return (
-    <div
-      ref={sectionRef}
-      className="w-full max-w-xl rounded-[28px] border border-white/10 bg-white/5 p-8 text-center shadow-[0_10px_50px_rgba(0,0,0,0.35)] backdrop-blur-md"
-    >
-      <p className="mb-8 text-sm uppercase tracking-[0.35em] text-white/60">
-        {title}
-      </p>
+    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
+      <div
+        ref={scratchRef}
+        className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
+      >
+        <p className="mb-8 text-sm uppercase tracking-[0.35em] text-white/60">
+          {title}
+        </p>
 
-      <div className="flex flex-wrap items-center justify-center gap-4">
-        <ScratchCircle value={values[0]} onReveal={handleCircleReveal} />
-        <ScratchCircle value={values[1]} onReveal={handleCircleReveal} />
-        <ScratchCircle value={values[2]} onReveal={handleCircleReveal} />
+        <div className="flex items-center justify-center gap-4">
+          <ScratchCircle value={values[0]} onReveal={handleCircleReveal} />
+          <ScratchCircle value={values[1]} onReveal={handleCircleReveal} />
+          <ScratchCircle value={values[2]} onReveal={handleCircleReveal} />
+        </div>
+
+        <p className="mt-8 text-sm text-white/50">Scratch all three circles</p>
       </div>
 
-      <p className="mt-8 text-sm text-white/50">Scratch all three circles</p>
+      <div
+        ref={cardRef}
+        className="absolute inset-0 flex translate-x-full items-center justify-center px-6 opacity-0"
+      >
+        <div className="w-full max-w-md overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_10px_50px_rgba(0,0,0,0.4)] backdrop-blur-md">
+          <div className="relative aspect-[4/5] w-full">
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              className="object-cover"
+              priority={false}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default function ScratchCard() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-neutral-950 px-6 py-16 text-white">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-10">
-        <ScratchSet title="Event One" values={["18", "APR", "2026"]} />
-        <ScratchSet title="Event Two" values={["19", "APR", "2026"]} />
-        <ScratchSet title="Event Three" values={["20", "APR", "2026"]} />
-      </div>
+    <section className="relative overflow-hidden bg-neutral-950 text-white">
+      <ScratchSet
+        title="Event One"
+        values={["18", "APR", "2026"]}
+        imageSrc="/1.png"
+        imageAlt="Wedding event one card"
+      />
+
+      <ScratchSet
+        title="Event Two"
+        values={["19", "APR", "2026"]}
+        imageSrc="/2.png"
+        imageAlt="Wedding event two card"
+      />
+
+      <ScratchSet
+        title="Event Three"
+        values={["20", "APR", "2026"]}
+        imageSrc="/3.png"
+        imageAlt="Wedding event three card"
+      />
     </section>
   );
 }
