@@ -130,8 +130,8 @@ function PlainCurtain({
         ref={innerRef}
         className="absolute inset-0"
         style={{
-          background:
-            "linear-gradient(180deg, #7b0f1d 0%, #6d0d19 25%, #631019 50%, #5a0d15 75%, #4c0810 100%)",
+        background:
+  "linear-gradient(180deg, #d6dbcf 0%, #c7cdbf 30%, #bcc3b4 55%, #b2b9ab 80%, #a8afa2 100%)",
         }}
       >
         {/* simple fabric folds */}
