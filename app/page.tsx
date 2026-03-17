@@ -46,7 +46,7 @@ function InvitationDetails() {
         <div className="relative z-10 flex h-full flex-col px-6 pb-5 pt-7 text-center sm:px-8">
           {/* monogram */}
           <div className="mt-1 flex flex-col items-center">
-            <div className="text-[32px] font-light tracking-[0.32em] text-[#817844] sm:text-[38px]">
+            <div className="font-playfair text-[32px] tracking-[0.32em] text-[#817844] sm:text-[38px]">
               D&nbsp;&nbsp;N
             </div>
             <div className="-mt-1 h-12 w-px bg-[#b7ae87]" />
