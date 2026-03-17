@@ -166,6 +166,69 @@ function PlainCurtain({
   );
 }
 
+function LocationsSection() {
+  const locations = [
+    {
+      title: "Mehndi Lagwayi",
+      mapSrc:
+        "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d7983.382699068892!2d74.45416370124397!3d31.41485898641428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDI1JzAxLjUiTiA3NMKwMjcnNTQuMCJF!5e1!3m2!1sen!2s!4v1773756656415!5m2!1sen!2s",
+    },
+    {
+      title: "Shendi",
+      mapSrc:
+        "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2633.4714528407653!2d74.46241307560737!3d31.417090974261512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDI1JzAxLjUiTiA3NMKwMjcnNTQuMCJF!5e1!3m2!1sen!2s!4v1773757012785!5m2!1sen!2s",
+    },
+    {
+      title: "Walima",
+      mapSrc:
+        "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2635.256075387918!2d74.22441477560486!3d31.3534659742908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDIxJzEyLjUiTiA3NMKwMTMnMzcuMiJF!5e1!3m2!1sen!2s!4v1773757044578!5m2!1sen!2s",
+    },
+  ];
+
+  return (
+    <section className="bg-[#f9ecd2] px-4 py-14">
+      <div className="mx-auto w-full max-w-sm">
+        <div className="mb-8 text-center">
+          <h2 className="text-[28px] font-light uppercase tracking-[0.18em] text-[#817844]">
+            Locations
+          </h2>
+          <div className="mx-auto mt-3 h-px w-16 bg-[#b7ae87]" />
+        </div>
+
+        <div className="space-y-8">
+          {locations.map((location) => (
+            <div
+              key={location.title}
+              className="overflow-hidden rounded-[24px] border border-[#d8cfad] bg-[#f5e7c8] shadow-[0_8px_30px_rgba(124,117,77,0.08)]"
+            >
+              <div className="px-5 pb-4 pt-5 text-center">
+                <h3 className="text-[18px] font-light uppercase tracking-[0.12em] text-[#817844]">
+                  {location.title}
+                </h3>
+              </div>
+
+              <div className="px-4 pb-4">
+                <div className="overflow-hidden rounded-[18px] border border-[#d8cfad]">
+                  <iframe
+                    src={location.mapSrc}
+                    width="100%"
+                    height="260"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="block w-full"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const leftCurtainRef = useRef<HTMLDivElement>(null);
@@ -204,7 +267,6 @@ export default function Home() {
       },
       0
     )
-      // slight inward pull first
       .to(
         leftInnerRef.current,
         {
@@ -221,7 +283,6 @@ export default function Home() {
         },
         0
       )
-      // then unveil outward
       .to(
         leftCurtainRef.current,
         {
@@ -242,7 +303,6 @@ export default function Home() {
         },
         0.12
       )
-      // fabric stretches while moving
       .to(
         leftInnerRef.current,
         {
@@ -261,7 +321,6 @@ export default function Home() {
         },
         0.12
       )
-      // fade overlay only near end
       .to(
         overlayRef.current,
         {
@@ -294,6 +353,9 @@ export default function Home() {
 
       {/* Scratch card section */}
       <ScratchCard />
+
+      {/* Locations section */}
+      <LocationsSection />
 
       {/* Curtain overlay */}
       <div
