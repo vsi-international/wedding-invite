@@ -236,23 +236,24 @@ function ScratchSet({ title, values, imageSrc, imageAlt }: ScratchSetProps) {
         <p className="mt-8 text-sm text-[#8d7758]">Scratch all three circles</p>
       </div>
 
-      <div
-        ref={cardRef}
-        className="absolute inset-0 flex translate-x-full items-center justify-center px-4 opacity-0 sm:px-6"
-      >
-        <div className="w-full max-w-[92vw] overflow-hidden rounded-[28px] border border-black/10 bg-white/70 shadow-[0_10px_40px_rgba(0,0,0,0.12)] backdrop-blur-md sm:max-w-md">
-          <div className="relative h-[78vh] min-h-[520px] w-full sm:h-[85vh] sm:min-h-[640px]">
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              fill
-              className="object-contain object-center p-2 sm:p-3"
-              sizes="(max-width: 640px) 92vw, 420px"
-              priority={false}
-            />
-          </div>
-        </div>
-      </div>
+   <div
+  ref={cardRef}
+  className="absolute inset-0 flex translate-x-full items-center justify-center opacity-0"
+>
+  <div className="w-full max-w-[95vw] sm:max-w-md">
+    {/* A6 aspect ratio */}
+    <div className="relative w-full aspect-[105/148] overflow-hidden rounded-[24px] shadow-[0_10px_40px_rgba(0,0,0,0.15)]">
+      <Image
+        src={imageSrc}
+        alt={imageAlt}
+        fill
+        className="object-cover object-center"
+        sizes="(max-width: 640px) 95vw, 420px"
+        priority={false}
+      />
+    </div>
+  </div>
+</div>
     </div>
   );
 }
