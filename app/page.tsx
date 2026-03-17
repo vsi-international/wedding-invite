@@ -95,7 +95,7 @@ function InvitationDetails() {
           {/* time */}
           <div className="mt-7">
             <p className="text-[14px] uppercase tracking-[0.18em] text-[#8e8662] sm:text-[17px]">
-              7:30 PM
+            
             </p>
           </div>
 
