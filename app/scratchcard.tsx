@@ -164,7 +164,7 @@ function ScratchCircle({ value, onReveal }: ScratchCircleProps) {
 
   return (
     <div className="relative h-[110px] w-[110px]">
-      <div className="absolute inset-0 flex items-center justify-center rounded-full border border-white/15 bg-neutral-900 text-2xl font-light text-white shadow-[0_6px_30px_rgba(0,0,0,0.35)]">
+      <div className="absolute inset-0 flex items-center justify-center rounded-full border border-black/10 bg-white text-2xl font-light text-[#3f3426] shadow-[0_6px_30px_rgba(0,0,0,0.12)]">
         {value}
       </div>
 
@@ -218,12 +218,12 @@ function ScratchSet({ title, values, imageSrc, imageAlt }: ScratchSetProps) {
   };
 
   return (
-    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden">
+    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#f9ecd2]">
       <div
         ref={scratchRef}
         className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
       >
-        <p className="mb-8 text-sm uppercase tracking-[0.35em] text-white/60">
+        <p className="mb-8 text-sm uppercase tracking-[0.35em] text-[#7a6548]">
           {title}
         </p>
 
@@ -233,20 +233,21 @@ function ScratchSet({ title, values, imageSrc, imageAlt }: ScratchSetProps) {
           <ScratchCircle value={values[2]} onReveal={handleCircleReveal} />
         </div>
 
-        <p className="mt-8 text-sm text-white/50">Scratch all three circles</p>
+        <p className="mt-8 text-sm text-[#8d7758]">Scratch all three circles</p>
       </div>
 
       <div
         ref={cardRef}
-        className="absolute inset-0 flex translate-x-full items-center justify-center px-6 opacity-0"
+        className="absolute inset-0 flex translate-x-full items-center justify-center px-4 opacity-0 sm:px-6"
       >
-        <div className="w-full max-w-md overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-[0_10px_50px_rgba(0,0,0,0.4)] backdrop-blur-md">
-          <div className="relative aspect-[4/5] w-full">
+        <div className="w-full max-w-[92vw] overflow-hidden rounded-[28px] border border-black/10 bg-white/70 shadow-[0_10px_40px_rgba(0,0,0,0.12)] backdrop-blur-md sm:max-w-md">
+          <div className="relative h-[78vh] min-h-[520px] w-full sm:h-[85vh] sm:min-h-[640px]">
             <Image
               src={imageSrc}
               alt={imageAlt}
               fill
-              className="object-cover"
+              className="object-contain object-center p-2 sm:p-3"
+              sizes="(max-width: 640px) 92vw, 420px"
               priority={false}
             />
           </div>
@@ -258,7 +259,7 @@ function ScratchSet({ title, values, imageSrc, imageAlt }: ScratchSetProps) {
 
 export default function ScratchCard() {
   return (
-    <section className="relative overflow-hidden bg-neutral-950 text-white">
+    <section className="relative overflow-hidden bg-[#f9ecd2] text-[#3f3426]">
       <ScratchSet
         title="Event One"
         values={["18", "APR", "2026"]}
