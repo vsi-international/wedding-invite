@@ -94,9 +94,7 @@ function InvitationDetails() {
 
           {/* time */}
           <div className="mt-7">
-            <p className="text-[14px] uppercase tracking-[0.18em] text-[#8e8662] sm:text-[17px]">
-            
-            </p>
+            <p className="text-[14px] uppercase tracking-[0.18em] text-[#8e8662] sm:text-[17px]"></p>
           </div>
 
           {/* RSVP */}
@@ -114,6 +112,97 @@ function InvitationDetails() {
         </div>
       </div>
     </section>
+  );
+}
+
+function CurtainPanel({
+  side,
+  curtainRef,
+}: {
+  side: "left" | "right";
+  curtainRef: React.RefObject<HTMLDivElement | null>;
+}) {
+  const isLeft = side === "left";
+
+  return (
+    <div
+      ref={curtainRef}
+      className={`absolute top-0 h-full w-1/2 overflow-hidden ${
+        isLeft ? "left-0 origin-left" : "right-0 origin-right"
+      }`}
+    >
+      {/* outer fabric */}
+      <div
+        className={`absolute inset-0 ${
+          isLeft
+            ? "bg-[linear-gradient(90deg,#3e000c_0%,#7c0b22_12%,#9f1731_28%,#7a0a20_45%,#a61d38_62%,#73091d_78%,#300007_100%)]"
+            : "bg-[linear-gradient(270deg,#3e000c_0%,#7c0b22_12%,#9f1731_28%,#7a0a20_45%,#a61d38_62%,#73091d_78%,#300007_100%)]"
+        }`}
+      />
+
+      {/* pleats */}
+      <div
+        className="absolute inset-0 opacity-80"
+        style={{
+          backgroundImage: isLeft
+            ? `repeating-linear-gradient(
+                90deg,
+                rgba(255,255,255,0.12) 0px,
+                rgba(255,255,255,0.12) 10px,
+                rgba(90,0,20,0.05) 10px,
+                rgba(90,0,20,0.05) 28px,
+                rgba(0,0,0,0.22) 28px,
+                rgba(0,0,0,0.22) 42px
+              )`
+            : `repeating-linear-gradient(
+                90deg,
+                rgba(0,0,0,0.22) 0px,
+                rgba(0,0,0,0.22) 14px,
+                rgba(90,0,20,0.05) 14px,
+                rgba(90,0,20,0.05) 30px,
+                rgba(255,255,255,0.12) 30px,
+                rgba(255,255,255,0.12) 42px
+              )`,
+        }}
+      />
+
+      {/* soft vertical shading */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.04)_12%,rgba(0,0,0,0.1)_55%,rgba(0,0,0,0.28)_100%)]" />
+
+      {/* center seam glow */}
+      <div
+        className={`absolute top-0 h-full w-[2px] ${
+          isLeft ? "right-0" : "left-0"
+        } bg-white/15`}
+      />
+
+      {/* side shadow for depth */}
+      <div
+        className={`absolute top-0 h-full w-10 ${
+          isLeft
+            ? "right-0 bg-[linear-gradient(90deg,transparent_0%,rgba(0,0,0,0.35)_100%)]"
+            : "left-0 bg-[linear-gradient(270deg,transparent_0%,rgba(0,0,0,0.35)_100%)]"
+        }`}
+      />
+
+      {/* gathered top fabric */}
+      <div className="absolute left-0 top-0 h-12 w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.2)_0%,rgba(255,255,255,0.05)_35%,rgba(0,0,0,0.18)_100%)]" />
+
+      {/* tie-back */}
+      <div
+        className={`absolute top-[42%] z-10 ${
+          isLeft ? "right-2" : "left-2"
+        }`}
+      >
+        <div className="relative h-20 w-6">
+          <div className="absolute left-1/2 top-0 h-full w-[3px] -translate-x-1/2 rounded-full bg-[#d9b86b]/80 shadow-[0_0_10px_rgba(217,184,107,0.3)]" />
+          <div className="absolute left-1/2 top-1/2 h-4 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#f3db9a]/60 bg-[#c79a42]/70 shadow-[0_0_12px_rgba(0,0,0,0.2)]" />
+        </div>
+      </div>
+
+      {/* lower drape shadow */}
+      <div className="absolute bottom-0 left-0 h-24 w-full bg-[linear-gradient(180deg,transparent_0%,rgba(0,0,0,0.16)_100%)]" />
+    </div>
   );
 }
 
@@ -145,14 +234,14 @@ export default function Home() {
     tl.to(hintRef.current, {
       opacity: 0,
       y: 10,
-      duration: 0.3,
+      duration: 0.25,
       ease: "power2.out",
     })
       .to(
         leftCurtainRef.current,
         {
-          x: "-100%",
-          duration: 1.2,
+          x: "-108%",
+          duration: 1.4,
           ease: "power3.inOut",
         },
         0
@@ -160,8 +249,8 @@ export default function Home() {
       .to(
         rightCurtainRef.current,
         {
-          x: "100%",
-          duration: 1.2,
+          x: "108%",
+          duration: 1.4,
           ease: "power3.inOut",
         },
         0
@@ -170,10 +259,10 @@ export default function Home() {
         overlayRef.current,
         {
           opacity: 0,
-          duration: 0.35,
+          duration: 0.4,
           ease: "power2.out",
         },
-        "-=0.15"
+        "-=0.18"
       );
   };
 
@@ -214,26 +303,44 @@ export default function Home() {
           }
         }}
       >
-        <div
-          ref={leftCurtainRef}
-          className="absolute left-0 top-0 h-full w-1/2 border-r border-white/10 bg-[linear-gradient(180deg,#7a0016_0%,#4e0010_45%,#2b0008_100%)] shadow-[inset_-12px_0_30px_rgba(0,0,0,0.25)]"
-        />
+        {/* backdrop behind curtains */}
+        <div className="absolute inset-0 bg-[#1f090d]" />
 
-        <div
-          ref={rightCurtainRef}
-          className="absolute right-0 top-0 h-full w-1/2 border-l border-white/10 bg-[linear-gradient(180deg,#7a0016_0%,#4e0010_45%,#2b0008_100%)] shadow-[inset_12px_0_30px_rgba(0,0,0,0.25)]"
-        />
+        {/* top curtain rod */}
+        <div className="absolute left-0 top-3 z-30 w-full px-3">
+          <div className="relative h-3 rounded-full bg-[linear-gradient(180deg,#d8bf82_0%,#b48a42_40%,#7f5a24_100%)] shadow-[0_3px_10px_rgba(0,0,0,0.35)]">
+            <div className="absolute -left-1 top-1/2 h-5 w-5 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_30%_30%,#f2dfab_0%,#b88d44_55%,#7f5a24_100%)] shadow-[0_2px_8px_rgba(0,0,0,0.35)]" />
+            <div className="absolute -right-1 top-1/2 h-5 w-5 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_30%_30%,#f2dfab_0%,#b88d44_55%,#7f5a24_100%)] shadow-[0_2px_8px_rgba(0,0,0,0.35)]" />
+          </div>
+        </div>
 
-        <div className="absolute inset-0 flex items-center justify-center">
+        {/* top valance */}
+        <div className="absolute left-0 top-0 z-20 h-20 w-full overflow-hidden">
+          <div className="absolute inset-x-0 top-0 h-14 bg-[linear-gradient(180deg,#8a0e24_0%,#6a0719_55%,#3f000c_100%)] shadow-[0_8px_18px_rgba(0,0,0,0.28)]" />
+          <div className="absolute inset-x-0 top-8 h-12 bg-[radial-gradient(circle_at_10%_0%,#b11d39_0%,#7b0b20_45%,#47000c_100%)] opacity-90" />
+          <div className="absolute bottom-0 left-0 h-8 w-1/3 rounded-b-[100%] bg-[#5a0616]" />
+          <div className="absolute bottom-0 left-1/3 h-10 w-1/3 rounded-b-[100%] bg-[#6f091b]" />
+          <div className="absolute bottom-0 right-0 h-8 w-1/3 rounded-b-[100%] bg-[#5a0616]" />
+        </div>
+
+        <CurtainPanel side="left" curtainRef={leftCurtainRef} />
+        <CurtainPanel side="right" curtainRef={rightCurtainRef} />
+
+        {/* center opening line */}
+        <div className="absolute left-1/2 top-0 z-30 h-full w-px -translate-x-1/2 bg-white/10" />
+
+        {/* vignette */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,0,0,0.18)_100%)]" />
+
+        {/* hint */}
+        <div className="absolute inset-0 z-40 flex items-center justify-center">
           <div
             ref={hintRef}
-            className="rounded-full border border-white/20 bg-black/25 px-5 py-3 text-sm tracking-wide text-white backdrop-blur-sm"
+            className="rounded-full border border-white/20 bg-black/30 px-5 py-3 text-sm tracking-wide text-white backdrop-blur-sm"
           >
             Touch to Open
           </div>
         </div>
-
-        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-white/10" />
       </div>
     </main>
   );
