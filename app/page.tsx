@@ -66,21 +66,35 @@ export default function Home() {
   };
 
   return (
-<main className="relative min-h-screen overflow-hidden bg-[#f9ecd2] text-black">
-  {/* First section behind curtains */}
-  <section className="relative z-0 flex min-h-screen items-center justify-center px-4">
-    <div className="w-full flex justify-center">
-      <Image
-        src="/1.png"
-        alt="Wedding invitation"
-        width={900}
-        height={1400}
-        priority
-        className="h-auto w-full max-w-sm object-contain"
-      />
-    </div>
-  </section>
-  
+    <main className="relative min-h-screen overflow-hidden bg-[#f9ecd2] text-black">
+      {/* First section behind curtains */}
+      <section className="relative z-0 flex min-h-screen items-center justify-center px-3 py-6">
+        <div className="w-full flex justify-center">
+          <div className="relative w-[96vw] max-w-[420px] aspect-[105/148] overflow-hidden">
+            <Image
+              src="/1.png"
+              alt="Wedding invitation"
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="(max-width: 640px) 96vw, 420px"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Invitation details section */}
+      <section className="relative flex min-h-screen items-center justify-center px-3 py-6 bg-[#f9ecd2]">
+        <div className="relative w-[96vw] max-w-[420px] aspect-[105/148] overflow-hidden">
+          <Image
+            src="/2.png"
+            alt="Wedding ceremony details"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 640px) 96vw, 420px"
+          />
+        </div>
+      </section>
 
       {/* Second section */}
       <ScratchCard />
