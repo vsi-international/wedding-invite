@@ -233,7 +233,7 @@ function ScratchSet({ title, values, imageSrc, imageAlt }: ScratchSetProps) {
           <ScratchCircle value={values[2]} onReveal={handleCircleReveal} />
         </div>
 
-        <p className="mt-8 text-sm text-[#8d7758]">Scratch all three circles</p>
+        <p className="mt-8 text-sm text-[#8d7758]">Scratch To Reveal Card</p>
       </div>
 
    <div
@@ -262,22 +262,22 @@ export default function ScratchCard() {
   return (
     <section className="relative overflow-hidden bg-[#f9ecd2] text-[#3f3426]">
       <ScratchSet
-        title="Event One"
-        values={["18", "APR", "2026"]}
+        title="Mehndi"
+        values={["2", "APR", "2026"]}
         imageSrc="/3.png"
         imageAlt="Wedding event one card"
       />
 
       <ScratchSet
-        title="Event Two"
-        values={["19", "APR", "2026"]}
+        title="Shendi"
+        values={["4", "APR", "2026"]}
         imageSrc="/4.png"
         imageAlt="Wedding event two card"
       />
 
       <ScratchSet
-        title="Event Three"
-        values={["20", "APR", "2026"]}
+        title="Walima"
+        values={["5", "APR", "2026"]}
         imageSrc="/5.png"
         imageAlt="Wedding event three card"
       />
