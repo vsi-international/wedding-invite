@@ -262,21 +262,21 @@ export default function ScratchCard() {
       <ScratchSet
         title="Event One"
         values={["18", "APR", "2026"]}
-        imageSrc="/1.png"
+        imageSrc="/3.png"
         imageAlt="Wedding event one card"
       />
 
       <ScratchSet
         title="Event Two"
         values={["19", "APR", "2026"]}
-        imageSrc="/2.png"
+        imageSrc="/4.png"
         imageAlt="Wedding event two card"
       />
 
       <ScratchSet
         title="Event Three"
         values={["20", "APR", "2026"]}
-        imageSrc="/3.png"
+        imageSrc="/5.png"
         imageAlt="Wedding event three card"
       />
     </section>
