@@ -7,7 +7,7 @@ import ScratchCard from "./scratchcard";
 
 function InvitationDetails() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#f9ecd2] px-4 py-6">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#f9ecd2] px-4 py-4">
       <div className="relative w-full max-w-sm aspect-[105/148] overflow-hidden bg-[#f9ecd2] text-[#7c754d]">
         {/* soft vintage texture */}
         <div className="pointer-events-none absolute inset-0 opacity-30">
@@ -18,7 +18,7 @@ function InvitationDetails() {
           <div className="absolute left-[10%] bottom-[8%] h-24 w-24 rounded-full bg-[#d9d0b4] blur-3xl" />
         </div>
 
-        {/* light floral-style corner accents */}
+        {/* corner accents */}
         <div className="pointer-events-none absolute left-0 top-0 h-40 w-40 opacity-20">
           <div className="absolute left-2 top-6 h-24 w-24 rounded-full border border-[#bdb593]" />
           <div className="absolute left-10 top-0 h-20 w-20 rounded-full border border-[#bdb593]" />
@@ -43,18 +43,18 @@ function InvitationDetails() {
           <div className="absolute bottom-0 right-12 h-20 w-20 rounded-full border border-[#bdb593]" />
         </div>
 
-        <div className="relative z-10 flex h-full flex-col px-6 pb-8 pt-10 text-center sm:px-8">
+        <div className="relative z-10 flex h-full flex-col px-6 pb-5 pt-7 text-center sm:px-8">
           {/* monogram */}
-          <div className="mt-2 flex flex-col items-center">
-            <div className="text-[34px] font-light tracking-[0.35em] text-[#817844] sm:text-[38px]">
+          <div className="mt-1 flex flex-col items-center">
+            <div className="text-[32px] font-light tracking-[0.32em] text-[#817844] sm:text-[38px]">
               D&nbsp;&nbsp;N
             </div>
-            <div className="-mt-1 h-14 w-px bg-[#b7ae87]" />
+            <div className="-mt-1 h-12 w-px bg-[#b7ae87]" />
           </div>
 
           {/* intro */}
-          <div className="mt-8 px-2">
-            <p className="text-[12px] font-light uppercase leading-[2.05] tracking-[0.24em] sm:text-[14px]">
+          <div className="mt-6 px-2">
+            <p className="text-[11px] font-light uppercase leading-[1.95] tracking-[0.22em] sm:text-[13px]">
               Mrs. Ekhlas Ahmed
               <br />
               requests the honour of
@@ -68,43 +68,43 @@ function InvitationDetails() {
           </div>
 
           {/* groom */}
-          <div className="mt-10">
-            <h2 className="text-[34px] font-light uppercase tracking-[0.18em] text-[#817844] sm:text-[42px]">
+          <div className="mt-8">
+            <h2 className="text-[30px] font-light uppercase tracking-[0.16em] text-[#817844] sm:text-[42px]">
               Daniyal Tariq
             </h2>
-            <p className="mt-2 text-[14px] font-light text-[#8e8662] sm:text-[16px]">
+            <p className="mt-1 text-[13px] font-light text-[#8e8662] sm:text-[16px]">
               S/o Mr. &amp; Mrs. Tariq Ekhlas
             </p>
           </div>
 
           {/* and */}
-          <div className="mt-6 text-[28px] italic text-[#40382e] sm:text-[32px]">
+          <div className="mt-4 text-[24px] italic text-[#40382e] sm:text-[32px]">
             and
           </div>
 
           {/* bride */}
-          <div className="mt-4">
-            <h2 className="text-[34px] font-light uppercase tracking-[0.18em] text-[#817844] sm:text-[42px]">
+          <div className="mt-3">
+            <h2 className="text-[30px] font-light uppercase tracking-[0.16em] text-[#817844] sm:text-[42px]">
               Noor Ijaz
             </h2>
-            <p className="mt-2 text-[14px] font-light text-[#8e8662] sm:text-[16px]">
+            <p className="mt-1 text-[13px] font-light text-[#8e8662] sm:text-[16px]">
               D/o Mr. &amp; Mrs. Ijaz Malik
             </p>
           </div>
 
           {/* time */}
-          <div className="mt-10">
-            <p className="text-[15px] uppercase tracking-[0.2em] text-[#8e8662] sm:text-[17px]">
+          <div className="mt-7">
+            <p className="text-[14px] uppercase tracking-[0.18em] text-[#8e8662] sm:text-[17px]">
               7:30 PM
             </p>
           </div>
 
           {/* RSVP */}
-          <div className="mt-auto self-start text-left">
-            <h3 className="text-[18px] uppercase tracking-[0.08em] text-[#817844] sm:text-[20px]">
+          <div className="mt-auto self-start pt-5 text-left">
+            <h3 className="text-[17px] uppercase tracking-[0.08em] text-[#817844] sm:text-[20px]">
               RSVP
             </h3>
-            <div className="mt-3 space-y-1 text-[12px] font-light leading-[1.8] text-[#7c754d] sm:text-[14px]">
+            <div className="mt-2 space-y-0.5 text-[11px] font-light leading-[1.7] text-[#7c754d] sm:text-[14px]">
               <p>Mr. Muhammad Kamil</p>
               <p>Mrs. Tariq Ekhlas</p>
               <p>Mr. &amp; Mrs. Eissa Haroon - 0322 5858987</p>
