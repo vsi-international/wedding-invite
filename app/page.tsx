@@ -7,8 +7,8 @@ import ScratchCard from "./scratchcard";
 
 function InvitationDetails() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#f9ecd2] px-4 py-4">
-      <div className="relative w-full max-w-sm aspect-[105/148] overflow-hidden bg-[#f9ecd2] text-[#7c754d]">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#fcfbf1] px-4 py-4">
+      <div className="relative w-full max-w-sm aspect-[105/148] overflow-hidden bg-[#fcfbf1] text-[#7c754d]">
         {/* soft vintage texture */}
         <div className="pointer-events-none absolute inset-0 opacity-30">
           <div className="absolute left-[6%] top-[8%] h-24 w-24 rounded-full bg-[#d9d0b4] blur-3xl" />
@@ -178,7 +178,7 @@ function LocationsSection() {
   ];
 
   return (
-    <section className="bg-[#f9ecd2] px-4 py-14">
+    <section className="bg-[#fcfbf1] px-4 py-14">
       <div className="mx-auto w-full max-w-sm">
         <div className="mb-8 text-center">
           <h2 className="text-[28px] font-light uppercase tracking-[0.18em] text-[#817844]">
@@ -222,7 +222,7 @@ function LocationsSection() {
 }
 function RSVPSection() {
   return (
-    <section className="bg-[#f9ecd2] px-4 py-14">
+    <section className="bg-[#fcfbf1] px-4 py-14">
       <div className="mx-auto w-full max-w-sm text-center">
         {/* Title */}
         <h2 className="text-[28px] font-light uppercase tracking-[0.18em] text-[#817844]">
@@ -345,7 +345,7 @@ export default function Home() {
   };
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#f9ecd2] text-black">
+    <main className="relative min-h-screen overflow-hidden bg-[#fcfbf1] text-black">
       {/* First section behind curtains */}
       <section className="relative z-0 flex min-h-screen items-center justify-center px-4">
         <div className="flex w-full justify-center">
