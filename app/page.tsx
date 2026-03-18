@@ -220,7 +220,27 @@ function LocationsSection() {
     </section>
   );
 }
+function RSVPSection() {
+  return (
+    <section className="bg-[#f9ecd2] px-4 py-14">
+      <div className="mx-auto w-full max-w-sm text-center">
+        {/* Title */}
+        <h2 className="text-[28px] font-light uppercase tracking-[0.18em] text-[#817844]">
+          RSVP
+        </h2>
+        <div className="mx-auto mt-3 h-px w-16 bg-[#b7ae87]" />
 
+        {/* Content */}
+        <div className="mt-6 space-y-2 text-[13px] font-light leading-[1.8] text-[#7c754d] sm:text-[15px]">
+          <p>Mr. Muhammad Kamil</p>
+          <p>Mrs. Tariq Ekhlas</p>
+          <p>Mr. &amp; Mrs. Eissa Haroon - 0322 5858987</p>
+          <p>Mr. Danish Tariq - 0321 4167337</p>
+        </div>
+      </div>
+    </section>
+  );
+}
 export default function Home() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const leftCurtainRef = useRef<HTMLDivElement>(null);
