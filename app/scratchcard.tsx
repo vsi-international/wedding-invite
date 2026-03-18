@@ -164,7 +164,7 @@ function ScratchCircle({ value, onReveal }: ScratchCircleProps) {
 
   return (
     <div className="relative h-[110px] w-[110px]">
-      <div className="absolute inset-0 flex items-center justify-center rounded-full border border-black/10 bg-[#f9ecd2] text-2xl font-light text-[#3f3426] shadow-[0_6px_30px_rgba(0,0,0,0.12)]">
+      <div className="absolute inset-0 flex items-center justify-center rounded-full border border-black/10 bg-[#fcfbf1] text-2xl font-light text-[#3f3426] shadow-[0_6px_30px_rgba(0,0,0,0.12)]">
         {value}
       </div>
 
@@ -218,7 +218,7 @@ function ScratchSet({ title, values, imageSrc, imageAlt }: ScratchSetProps) {
   };
 
   return (
-    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#f9ecd2]">
+    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#fcfbf1]">
       <div
         ref={scratchRef}
         className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
@@ -260,7 +260,7 @@ function ScratchSet({ title, values, imageSrc, imageAlt }: ScratchSetProps) {
 
 export default function ScratchCard() {
   return (
-    <section className="relative overflow-hidden bg-[#f9ecd2] text-[#3f3426]">
+    <section className="relative overflow-hidden bg-[#fcfbf1] text-[#3f3426]">
       <ScratchSet
         title="Mehndi"
         values={["2", "APR", "2026"]}
