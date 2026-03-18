@@ -247,26 +247,34 @@ export default function Home() {
   const [opened, setOpened] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  useEffect(() => {
+  const startMusic = () => {
     const audio = audioRef.current;
     if (!audio) return;
 
+    audio.volume = 0.6;
     audio.loop = true;
-    audio.volume = 0.5; // adjust volume here
-  }, []);
+    audio.playsInline = true;
 
-  const handleOpenCurtains = async () => {
+    // make sure browser loads the file
+    audio.load();
+
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          console.log("Music started");
+        })
+        .catch((err) => {
+          console.error("Music failed to play:", err);
+        });
+    }
+  };
+
+  const handleOpenCurtains = () => {
     if (opened || isAnimating) return;
 
-    const audio = audioRef.current;
-    if (audio) {
-      try {
-        await audio.play();
-      } catch (error) {
-        console.error("Audio playback failed:", error);
-      }
-    }
-
+    startMusic();
     setIsAnimating(true);
 
     const tl = gsap.timeline({
@@ -358,11 +366,13 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#fcfbf1] text-black">
-      {/* Hidden looping audio */}
-      <audio ref={audioRef} preload="auto">
-        <source src="/music.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
+      <audio
+        ref={audioRef}
+        src="/music.mp3"
+        preload="auto"
+        loop
+        playsInline
+      />
 
       {/* First section behind curtains */}
       <section className="relative z-0 flex min-h-screen items-center justify-center px-4">
@@ -383,7 +393,6 @@ export default function Home() {
       <LocationsSection />
       <RSVPSection />
 
-      {/* Curtain overlay */}
       <div
         ref={overlayRef}
         className="absolute inset-0 z-20"
@@ -422,4 +431,5 @@ export default function Home() {
       </div>
     </main>
   );
+}
 }
