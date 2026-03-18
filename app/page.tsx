@@ -48,7 +48,6 @@ function InvitationDetails() {
             <div className="relative flex items-center justify-center font-playfair text-[32px] text-[#817844] sm:text-[38px]">
               <span className="inline-block w-[56px] text-center">D</span>
               <span className="inline-block w-[56px] text-center">N</span>
-
               <span className="absolute left-1/2 top-[10px] h-12 w-px -translate-x-1/2 bg-[#b7ae87]" />
             </div>
           </div>
@@ -131,7 +130,6 @@ function PlainCurtain({
               "repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 10px, rgba(0,0,0,0.08) 10px, rgba(0,0,0,0.08) 24px)",
           }}
         />
-
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.02)_12%,rgba(0,0,0,0.06)_55%,rgba(0,0,0,0.16)_100%)]" />
 
         <div
@@ -242,44 +240,42 @@ export default function Home() {
   const leftInnerRef = useRef<HTMLDivElement>(null);
   const rightInnerRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const [opened, setOpened] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    const audio = new Audio("/music.mp3");
-    audio.preload = "auto";
-    audio.loop = true;
-    audio.volume = 0.5;
-    audioRef.current = audio;
-
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-      audioRef.current = null;
-    };
-  }, []);
-
-  const startMusic = async () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    try {
-      audio.pause();
-      audio.currentTime = 0;
-      await audio.play();
-    } catch (error) {
-      console.error("Audio playback failed:", error);
+    audio.volume = 0.55;
+    audio.loop = true;
+    audio.preload = "auto";
+    audio.load();
+  }, []);
+
+  const playMusic = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.currentTime = 0;
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+      playPromise.catch((error) => {
+        console.error("Audio playback failed:", error);
+      });
     }
   };
 
-  const handleOpenCurtains = async () => {
+  const handleOpenCurtains = () => {
     if (opened || isAnimating) return;
 
     setIsAnimating(true);
 
-    await startMusic();
+    // call play directly inside the user gesture
+    playMusic();
 
     const tl = gsap.timeline({
       defaults: { ease: "power3.inOut" },
@@ -370,6 +366,10 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#fcfbf1] text-black">
+      <audio ref={audioRef} preload="auto" loop playsInline>
+        <source src="/music.mp3" type="audio/mpeg" />
+      </audio>
+
       {/* First section behind curtains */}
       <section className="relative z-0 flex min-h-screen items-center justify-center px-4">
         <div className="flex w-full justify-center">
