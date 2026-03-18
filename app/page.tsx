@@ -51,7 +51,7 @@ function InvitationDetails() {
       <span className="absolute left-1/2 top-[36px] h-12 w-px -translate-x-1/2 bg-[#b7ae87]"></span>
     </div>
   </div>
-</div>
+
 
           <div className="mt-6 px-2">
             <p className="text-[11px] font-light uppercase leading-[1.95] tracking-[0.22em] sm:text-[13px]">
