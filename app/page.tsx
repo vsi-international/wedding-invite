@@ -92,17 +92,7 @@ function InvitationDetails() {
           <div className="mt-7">
             <p className="text-[14px] uppercase tracking-[0.18em] text-[#8e8662] sm:text-[17px]"></p>
           </div>
- <div className="mt-auto self-start pt-5 text-left">
-            <h3 className="text-[17px] uppercase tracking-[0.08em] text-[#817844] sm:text-[20px]">
-              RSVP
-            </h3>
-            <div className="mt-2 space-y-0.5 text-[11px] font-light leading-[1.7] text-[#7c754d] sm:text-[14px]">
-              <p>Mr. Muhammad Kamil</p>
-              <p>Mrs. Tariq Ekhlas</p>
-              <p>Mr. &amp; Mrs. Eissa Haroon - 0322 5858987</p>
-              <p>Mr. Danish Tariq - 0321 4167337</p>
-            </div>
-          </div>
+
         </div>
       </div>
          
