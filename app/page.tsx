@@ -175,11 +175,11 @@ function LocationsSection() {
       mapSrc:
         "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d7983.382699068892!2d74.45416370124397!3d31.41485898641428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDI1JzAxLjUiTiA3NMKwMjcnNTQuMCJF!5e1!3m2!1sen!2s!4v1773756656415!5m2!1sen!2s",
     },
-    {
-      title: "Shendi",
-      mapSrc:
-        "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2633.4714528407653!2d74.46241307560737!3d31.417090974261512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDI1JzAxLjUiTiA3NMKwMjcnNTQuMCJF!5e1!3m2!1sen!2s!4v1773757012785!5m2!1sen!2s",
-    },
+   {
+    title: "Shendi",
+    mapSrc:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2631.41133072945!2d74.49340099999999!3d31.490394499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919090031cf9115%3A0xd82df4741d9ddc7d!2sFestivo%20marquee!5e1!3m2!1sen!2s!4v1773820416904!5m2!1sen!2s",
+  },
     {
       title: "Walima",
       mapSrc:
