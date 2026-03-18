@@ -9,7 +9,6 @@ function InvitationDetails() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#fcfbf1] px-4 py-4">
       <div className="relative w-full max-w-sm aspect-[105/148] overflow-hidden bg-[#fcfbf1] text-[#7c754d]">
-        
         <div className="pointer-events-none absolute inset-0 opacity-30">
           <div className="absolute left-[6%] top-[8%] h-24 w-24 rounded-full bg-[#d9d0b4] blur-3xl" />
           <div className="absolute right-[8%] top-[16%] h-20 w-20 rounded-full bg-[#d9d0b4] blur-3xl" />
