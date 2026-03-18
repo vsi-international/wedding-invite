@@ -247,34 +247,26 @@ export default function Home() {
   const [opened, setOpened] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const startMusic = () => {
+  useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    audio.volume = 0.6;
     audio.loop = true;
-    audio.playsInline = true;
+    audio.volume = 0.5; // adjust volume here
+  }, []);
 
-    // make sure browser loads the file
-    audio.load();
-
-    const playPromise = audio.play();
-
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          console.log("Music started");
-        })
-        .catch((err) => {
-          console.error("Music failed to play:", err);
-        });
-    }
-  };
-
-  const handleOpenCurtains = () => {
+  const handleOpenCurtains = async () => {
     if (opened || isAnimating) return;
 
-    startMusic();
+    const audio = audioRef.current;
+    if (audio) {
+      try {
+        await audio.play();
+      } catch (error) {
+        console.error("Audio playback failed:", error);
+      }
+    }
+
     setIsAnimating(true);
 
     const tl = gsap.timeline({
