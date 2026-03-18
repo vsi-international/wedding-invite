@@ -48,7 +48,7 @@ function InvitationDetails() {
     <span className="px-[18px] text-center">D</span>
     <span className="px-[18px] text-center">N</span>
 
-    {/* perfectly centered vertical line */}
+
     <span className="absolute left-1/2 top-[38px] h-12 w-px -translate-x-1/2 bg-[#b7ae87]" />
     
   </div>
