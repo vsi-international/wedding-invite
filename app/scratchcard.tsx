@@ -164,7 +164,7 @@ function ScratchCircle({ value, onReveal }: ScratchCircleProps) {
 
   return (
     <div className="relative h-[110px] w-[110px]">
-      <div className="absolute inset-0 flex items-center justify-center rounded-full border border-black/10 bg-white text-2xl font-light text-[#3f3426] shadow-[0_6px_30px_rgba(0,0,0,0.12)]">
+      <div className="absolute inset-0 flex items-center justify-center rounded-full border border-black/10 bg-[#f9ecd2] text-2xl font-light text-[#3f3426] shadow-[0_6px_30px_rgba(0,0,0,0.12)]">
         {value}
       </div>
 
