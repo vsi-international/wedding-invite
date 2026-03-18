@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import ScratchCard from "./scratchcard";
@@ -9,7 +9,6 @@ function InvitationDetails() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#fcfbf1] px-4 py-4">
       <div className="relative w-full max-w-sm aspect-[105/148] overflow-hidden bg-[#fcfbf1] text-[#7c754d]">
-        {/* soft vintage texture */}
         <div className="pointer-events-none absolute inset-0 opacity-30">
           <div className="absolute left-[6%] top-[8%] h-24 w-24 rounded-full bg-[#d9d0b4] blur-3xl" />
           <div className="absolute right-[8%] top-[16%] h-20 w-20 rounded-full bg-[#d9d0b4] blur-3xl" />
@@ -18,7 +17,6 @@ function InvitationDetails() {
           <div className="absolute left-[10%] bottom-[8%] h-24 w-24 rounded-full bg-[#d9d0b4] blur-3xl" />
         </div>
 
-        {/* corner accents */}
         <div className="pointer-events-none absolute left-0 top-0 h-40 w-40 opacity-20">
           <div className="absolute left-2 top-6 h-24 w-24 rounded-full border border-[#bdb593]" />
           <div className="absolute left-10 top-0 h-20 w-20 rounded-full border border-[#bdb593]" />
@@ -86,10 +84,6 @@ function InvitationDetails() {
             <p className="mt-1 text-[13px] font-light text-[#8e8662] sm:text-[16px]">
               D/o Mr. &amp; Mrs. Malik Ijaz Bashir
             </p>
-          </div>
-
-          <div className="mt-7">
-            <p className="text-[14px] uppercase tracking-[0.18em] text-[#8e8662] sm:text-[17px]"></p>
           </div>
         </div>
       </div>
@@ -245,37 +239,28 @@ export default function Home() {
   const [opened, setOpened] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  useEffect(() => {
+  const startAudio = async () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    audio.volume = 0.55;
-    audio.loop = true;
-    audio.preload = "auto";
-    audio.load();
-  }, []);
-
-  const playMusic = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    audio.currentTime = 0;
-    const playPromise = audio.play();
-
-    if (playPromise !== undefined) {
-      playPromise.catch((error) => {
-        console.error("Audio playback failed:", error);
-      });
+    try {
+      audio.volume = 0.55;
+      audio.loop = true;
+      audio.muted = false;
+      audio.currentTime = 0;
+      await audio.play();
+    } catch (error) {
+      console.error("Audio playback failed:", error);
     }
   };
 
-  const handleOpenCurtains = () => {
+  const handleOpenCurtains = async () => {
     if (opened || isAnimating) return;
 
     setIsAnimating(true);
 
-    // call play directly inside the user gesture
-    playMusic();
+    // Start audio directly from the tap/click handler
+    await startAudio();
 
     const tl = gsap.timeline({
       defaults: { ease: "power3.inOut" },
@@ -366,11 +351,10 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#fcfbf1] text-black">
-      <audio ref={audioRef} preload="auto" loop playsInline>
+      <audio ref={audioRef} preload="metadata" playsInline>
         <source src="/music.mp3" type="audio/mpeg" />
       </audio>
 
-      {/* First section behind curtains */}
       <section className="relative z-0 flex min-h-screen items-center justify-center px-4">
         <div className="flex w-full justify-center">
           <Image
@@ -389,18 +373,18 @@ export default function Home() {
       <LocationsSection />
       <RSVPSection />
 
-      {/* Curtain overlay */}
       <div
         ref={overlayRef}
         className="absolute inset-0 z-20"
-        onPointerDown={handleOpenCurtains}
+        onClick={handleOpenCurtains}
+        onTouchEnd={handleOpenCurtains}
         role="button"
         aria-label="Open invitation"
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
-            handleOpenCurtains();
+            void handleOpenCurtains();
           }
         }}
       >
