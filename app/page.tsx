@@ -191,7 +191,7 @@ function LocationsSection() {
           {locations.map((location) => (
             <div
               key={location.title}
-              className="overflow-hidden rounded-[24px] border border-[#d8cfad] bg-[#f5e7c8] shadow-[0_8px_30px_rgba(124,117,77,0.08)]"
+className="overflow-hidden rounded-[24px] border border-[#e6e2c9] bg-[#fcfbf1] shadow-[0_8px_30px_rgba(124,117,77,0.06)]"
             >
               <div className="px-5 pb-4 pt-5 text-center">
                 <h3 className="text-[18px] font-light uppercase tracking-[0.12em] text-[#817844]">
