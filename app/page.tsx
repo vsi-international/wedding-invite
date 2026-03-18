@@ -368,7 +368,7 @@ export default function Home() {
 
       {/* Locations section */}
       <LocationsSection />
-
+      <RSVPSection />
       {/* Curtain overlay */}
       <div
         ref={overlayRef}
