@@ -85,7 +85,7 @@ function InvitationDetails() {
               Noor Ijaz
             </h2>
             <p className="mt-1 text-[13px] font-light text-[#8e8662] sm:text-[16px]">
-              D/o Mr. &amp; Mrs. Ijaz Malik
+              D/o Mr. &amp; Mrs. Malik Ijaz Bashir
             </p>
           </div>
 
