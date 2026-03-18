@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import ScratchCard from "./scratchcard";
@@ -49,7 +49,7 @@ function InvitationDetails() {
               <span className="inline-block w-[56px] text-center">D</span>
               <span className="inline-block w-[56px] text-center">N</span>
 
-              <span className="absolute left-1/2 top-[10px] h-12 w-px -translate-x-1/2 bg-[#b7ae87]"></span>
+              <span className="absolute left-1/2 top-[10px] h-12 w-px -translate-x-1/2 bg-[#b7ae87]" />
             </div>
           </div>
 
@@ -247,26 +247,24 @@ export default function Home() {
   const [opened, setOpened] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  useEffect(() => {
+  const startMusic = async () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    audio.loop = true;
-    audio.volume = 0.5; // adjust volume here
-  }, []);
+    try {
+      audio.volume = 0.5;
+      audio.loop = true;
+      audio.currentTime = 0;
+      await audio.play();
+    } catch (error) {
+      console.error("Audio playback failed:", error);
+    }
+  };
 
-  const handleOpenCurtains = async () => {
+  const handleOpenCurtains = () => {
     if (opened || isAnimating) return;
 
-    const audio = audioRef.current;
-    if (audio) {
-      try {
-        await audio.play();
-      } catch (error) {
-        console.error("Audio playback failed:", error);
-      }
-    }
-
+    startMusic();
     setIsAnimating(true);
 
     const tl = gsap.timeline({
@@ -358,11 +356,7 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#fcfbf1] text-black">
-      {/* Hidden looping audio */}
-      <audio ref={audioRef} preload="auto">
-        <source src="/music.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
+      <audio ref={audioRef} src="/music.mp3" preload="auto" loop />
 
       {/* First section behind curtains */}
       <section className="relative z-0 flex min-h-screen items-center justify-center px-4">
