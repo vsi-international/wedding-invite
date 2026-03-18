@@ -42,14 +42,16 @@ function InvitationDetails() {
           <div className="absolute bottom-10 right-0 h-20 w-20 rounded-full border border-[#bdb593]" />
           <div className="absolute bottom-0 right-12 h-20 w-20 rounded-full border border-[#bdb593]" />
         </div>
-<div className="relative z-10 flex h-full flex-col px-6 pb-5 pt-7 text-center sm:px-8"> 
-  <div className="mt-1 flex flex-col items-center"> 
-    <div className="relative inline-flex items-center justify-center font-playfair text-[32px] text-[#817844] sm:text-[38px]">
-      <span className="block pr-[28px]">D</span> 
-      <span className="block pl-[28px]">N</span> 
-      <span className="absolute left-1/2 top-[115%] h-12 w-px -translate-x-1/2 bg-[#b7ae87]" /> 
-    </div> 
+<div className="relative z-10 flex h-full flex-col px-6 pb-5 pt-7 text-center sm:px-8">
+  <div className="mt-1 flex flex-col items-center">
+    <div className="relative grid grid-cols-[auto_auto] items-center justify-center font-playfair text-[32px] text-[#817844] sm:text-[38px]">
+      <span className="px-[18px] text-center">D</span>
+      <span className="px-[18px] text-center">N</span>
+
+      <span className="absolute left-1/2 top-[36px] h-12 w-px -translate-x-1/2 bg-[#b7ae87]" />
+    </div>
   </div>
+</div>
 
           <div className="mt-6 px-2">
             <p className="text-[11px] font-light uppercase leading-[1.95] tracking-[0.22em] sm:text-[13px]">
