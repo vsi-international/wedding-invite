@@ -76,9 +76,9 @@ function InvitationDetails() {
             </p>
           </div>
 
-          <div className="mt-4 text-[24px] italic text-[#40382e] sm:text-[32px]">
-            and
-          </div>
+       <div className="mt-4 text-[24px] italic text-[#817844] sm:text-[32px]">
+  and
+</div>
 
           <div className="mt-3">
             <h2 className="text-[30px] font-light uppercase tracking-[0.16em] text-[#817844] sm:text-[42px]">
