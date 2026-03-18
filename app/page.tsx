@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import ScratchCard from "./scratchcard";
@@ -42,16 +42,16 @@ function InvitationDetails() {
           <div className="absolute bottom-10 right-0 h-20 w-20 rounded-full border border-[#bdb593]" />
           <div className="absolute bottom-0 right-12 h-20 w-20 rounded-full border border-[#bdb593]" />
         </div>
+<div className="relative z-10 flex h-full flex-col px-6 pb-5 pt-7 text-center sm:px-8">
+  <div className="mt-1 flex flex-col items-center">
+    <div className="relative flex items-center justify-center font-playfair text-[32px] text-[#817844] sm:text-[38px]">
+      <span className="inline-block w-[56px] text-center">D</span>
+      <span className="inline-block w-[56px] text-center">N</span>
 
-        <div className="relative z-10 flex h-full flex-col px-6 pb-5 pt-7 text-center sm:px-8">
-          <div className="mt-1 flex flex-col items-center">
-            <div className="relative flex items-center justify-center font-playfair text-[32px] text-[#817844] sm:text-[38px]">
-              <span className="inline-block w-[56px] text-center">D</span>
-              <span className="inline-block w-[56px] text-center">N</span>
+      <span className="absolute left-1/2 top-[10px] h-12 w-px -translate-x-1/2 bg-[#b7ae87]"></span>
+    </div>
+  </div>
 
-              <span className="absolute left-1/2 top-[10px] h-12 w-px -translate-x-1/2 bg-[#b7ae87]"></span>
-            </div>
-          </div>
 
           <div className="mt-6 px-2">
             <p className="text-[11px] font-light uppercase leading-[1.95] tracking-[0.22em] sm:text-[13px]">
@@ -76,9 +76,9 @@ function InvitationDetails() {
             </p>
           </div>
 
-          <div className="mt-4 text-[24px] italic text-[#817844] sm:text-[32px]">
-            and
-          </div>
+       <div className="mt-4 text-[24px] italic text-[#817844] sm:text-[32px]">
+  and
+</div>
 
           <div className="mt-3">
             <h2 className="text-[30px] font-light uppercase tracking-[0.16em] text-[#817844] sm:text-[42px]">
@@ -92,8 +92,10 @@ function InvitationDetails() {
           <div className="mt-7">
             <p className="text-[14px] uppercase tracking-[0.18em] text-[#8e8662] sm:text-[17px]"></p>
           </div>
+
         </div>
       </div>
+         
     </section>
   );
 }
@@ -120,10 +122,11 @@ function PlainCurtain({
         ref={innerRef}
         className="absolute inset-0"
         style={{
-          background:
-            "linear-gradient(180deg, #d6dbcf 0%, #c7cdbf 30%, #bcc3b4 55%, #b2b9ab 80%, #a8afa2 100%)",
+        background:
+  "linear-gradient(180deg, #d6dbcf 0%, #c7cdbf 30%, #bcc3b4 55%, #b2b9ab 80%, #a8afa2 100%)",
         }}
       >
+        {/* simple fabric folds */}
         <div
           className="absolute inset-0 opacity-40"
           style={{
@@ -132,8 +135,10 @@ function PlainCurtain({
           }}
         />
 
+        {/* soft vertical depth */}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0.02)_12%,rgba(0,0,0,0.06)_55%,rgba(0,0,0,0.16)_100%)]" />
 
+        {/* outer edge shadow */}
         <div
           className={`absolute top-0 h-full w-8 ${
             isLeft
@@ -142,6 +147,7 @@ function PlainCurtain({
           }`}
         />
 
+        {/* center edge highlight */}
         <div
           className={`absolute top-0 h-full w-[2px] ${
             isLeft ? "right-0 bg-white/10" : "left-0 bg-white/10"
@@ -159,11 +165,11 @@ function LocationsSection() {
       mapSrc:
         "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d7983.382699068892!2d74.45416370124397!3d31.41485898641428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDI1JzAxLjUiTiA3NMKwMjcnNTQuMCJF!5e1!3m2!1sen!2s!4v1773756656415!5m2!1sen!2s",
     },
-    {
-      title: "Shendi",
-      mapSrc:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2631.41133072945!2d74.49340099999999!3d31.490394499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919090031cf9115%3A0xd82df4741d9ddc7d!2sFestivo%20marquee!5e1!3m2!1sen!2s!4v1773820416904!5m2!1sen!2s",
-    },
+   {
+    title: "Shendi",
+    mapSrc:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2631.41133072945!2d74.49340099999999!3d31.490394499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919090031cf9115%3A0xd82df4741d9ddc7d!2sFestivo%20marquee!5e1!3m2!1sen!2s!4v1773820416904!5m2!1sen!2s",
+  },
     {
       title: "Walima",
       mapSrc:
@@ -185,7 +191,7 @@ function LocationsSection() {
           {locations.map((location) => (
             <div
               key={location.title}
-              className="overflow-hidden rounded-[24px] border border-[#e6e2c9] bg-[#fcfbf1] shadow-[0_8px_30px_rgba(124,117,77,0.06)]"
+className="overflow-hidden rounded-[24px] border border-[#e6e2c9] bg-[#fcfbf1] shadow-[0_8px_30px_rgba(124,117,77,0.06)]"
             >
               <div className="px-5 pb-4 pt-5 text-center">
                 <h3 className="text-[18px] font-light uppercase tracking-[0.12em] text-[#817844]">
@@ -214,16 +220,17 @@ function LocationsSection() {
     </section>
   );
 }
-
 function RSVPSection() {
   return (
     <section className="bg-[#fcfbf1] px-4 py-14">
       <div className="mx-auto w-full max-w-sm text-center">
+        {/* Title */}
         <h2 className="text-[28px] font-light uppercase tracking-[0.18em] text-[#817844]">
           RSVP
         </h2>
         <div className="mx-auto mt-3 h-px w-16 bg-[#b7ae87]" />
 
+        {/* Content */}
         <div className="mt-6 space-y-2 text-[13px] font-light leading-[1.8] text-[#7c754d] sm:text-[15px]">
           <p>Mr. Muhammad Kamil</p>
           <p>Mrs. Tariq Ekhlas</p>
@@ -234,7 +241,6 @@ function RSVPSection() {
     </section>
   );
 }
-
 export default function Home() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const leftCurtainRef = useRef<HTMLDivElement>(null);
@@ -242,39 +248,13 @@ export default function Home() {
   const leftInnerRef = useRef<HTMLDivElement>(null);
   const rightInnerRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
-  const audioRef = useRef<HTMLAudioElement>(null);
 
   const [opened, setOpened] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const startMusic = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    audio.volume = 0.6;
-    audio.loop = true;
-    audio.playsInline = true;
-
-    // make sure browser loads the file
-    audio.load();
-
-    const playPromise = audio.play();
-
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          console.log("Music started");
-        })
-        .catch((err) => {
-          console.error("Music failed to play:", err);
-        });
-    }
-  };
-
   const handleOpenCurtains = () => {
     if (opened || isAnimating) return;
 
-    startMusic();
     setIsAnimating(true);
 
     const tl = gsap.timeline({
@@ -366,14 +346,6 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#fcfbf1] text-black">
-      <audio
-        ref={audioRef}
-        src="/music.mp3"
-        preload="auto"
-        loop
-        playsInline
-      />
-
       {/* First section behind curtains */}
       <section className="relative z-0 flex min-h-screen items-center justify-center px-4">
         <div className="flex w-full justify-center">
@@ -388,11 +360,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Invitation details section */}
       <InvitationDetails />
+
+      {/* Scratch card section */}
       <ScratchCard />
+
+      {/* Locations section */}
       <LocationsSection />
       <RSVPSection />
-
+      {/* Curtain overlay */}
       <div
         ref={overlayRef}
         className="absolute inset-0 z-20"
@@ -431,5 +408,4 @@ export default function Home() {
       </div>
     </main>
   );
-}
 }
