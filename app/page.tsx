@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import ScratchCard from "./scratchcard";
@@ -242,18 +242,31 @@ export default function Home() {
   const leftInnerRef = useRef<HTMLDivElement>(null);
   const rightInnerRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLDivElement>(null);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const [opened, setOpened] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const audio = new Audio("/music.mp3");
+    audio.preload = "auto";
+    audio.loop = true;
+    audio.volume = 0.5;
+    audioRef.current = audio;
+
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+      audioRef.current = null;
+    };
+  }, []);
 
   const startMusic = async () => {
     const audio = audioRef.current;
     if (!audio) return;
 
     try {
-      audio.volume = 0.5;
-      audio.loop = true;
+      audio.pause();
       audio.currentTime = 0;
       await audio.play();
     } catch (error) {
@@ -261,11 +274,12 @@ export default function Home() {
     }
   };
 
-  const handleOpenCurtains = () => {
+  const handleOpenCurtains = async () => {
     if (opened || isAnimating) return;
 
-    startMusic();
     setIsAnimating(true);
+
+    await startMusic();
 
     const tl = gsap.timeline({
       defaults: { ease: "power3.inOut" },
@@ -356,8 +370,6 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#fcfbf1] text-black">
-      <audio ref={audioRef} src="/music.mp3" preload="auto" loop />
-
       {/* First section behind curtains */}
       <section className="relative z-0 flex min-h-screen items-center justify-center px-4">
         <div className="flex w-full justify-center">
@@ -381,13 +393,13 @@ export default function Home() {
       <div
         ref={overlayRef}
         className="absolute inset-0 z-20"
-        onClick={handleOpenCurtains}
-        onTouchStart={handleOpenCurtains}
+        onPointerDown={handleOpenCurtains}
         role="button"
         aria-label="Open invitation"
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
             handleOpenCurtains();
           }
         }}
